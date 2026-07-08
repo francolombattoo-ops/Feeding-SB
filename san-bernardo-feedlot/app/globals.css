@@ -1,0 +1,76 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap');
+
+:root {
+  /* Paleta "campo al amanecer": tierra oscura, verde oliva de pasto seco, maíz como acento de acción */
+  --sb-earth-950: #17140f;   /* casi negro, tierra húmeda */
+  --sb-earth-900: #211d16;
+  --sb-earth-800: #2c271d;
+  --sb-earth-700: #3d3628;
+  --sb-olive-600: #6b6b47;
+  --sb-olive-300: #b9b998;
+  --sb-cream: #f6f3ea;       /* fondo principal, papel de campo */
+  --sb-cream-dim: #ede8d9;
+  --sb-corn-500: #d99a2b;    /* acento primario: maíz / advertencia media */
+  --sb-corn-600: #b87e1c;
+  --sb-corn-100: #faedd0;
+  --sb-good-600: #4f7942;    /* JUSTO / ok - verde pasto */
+  --sb-good-100: #e3ecdd;
+  --sb-bad-600: #a83c2e;     /* FALTA / alerta - rojo tierra/óxido */
+  --sb-bad-100: #f4dfda;
+  --sb-over-600: #3d6b8a;    /* SOBRA - azul silo */
+  --sb-over-100: #dde9ef;
+}
+
+* {
+  border-color: var(--sb-earth-700);
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  background: var(--sb-cream);
+  color: var(--sb-earth-950);
+  font-family: 'Inter', system-ui, sans-serif;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.font-display {
+  font-family: 'Space Grotesk', 'Inter', system-ui, sans-serif;
+}
+
+/* Textura sutil de "campo" en el fondo, muy tenue, no decorativa gratuita: */
+.field-texture {
+  background-image:
+    radial-gradient(circle at 1px 1px, rgba(23,20,15,0.05) 1px, transparent 0);
+  background-size: 18px 18px;
+}
+
+::selection {
+  background: var(--sb-corn-500);
+  color: var(--sb-earth-950);
+}
+
+:focus-visible {
+  outline: 2px solid var(--sb-corn-600);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Scrollbar discreta */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--sb-olive-300); border-radius: 8px; }
